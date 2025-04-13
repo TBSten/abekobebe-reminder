@@ -6,7 +6,7 @@ const TEAM_F_ROLE_ID = process.env.TEAM_F_ROLE_ID as string
 
 const message = ()=> `
 <@&${TEAM_F_ROLE_ID}>
-今週のペアプロ/レビュー会
+↓↓ 今週のペアプロ/レビュー会 ↓↓
 `.trim()
 
 export const GET = async (request: NextRequest) => {
