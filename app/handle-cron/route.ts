@@ -21,7 +21,6 @@ export const GET = async (request: NextRequest) => {
       });
     }
 
-    const now = new Date()
     const webhookResponse = await fetch(DISCORD_WEBHOOK_URL, {
         method: 'POST',
         headers: {
