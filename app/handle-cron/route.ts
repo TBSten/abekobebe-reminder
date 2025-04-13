@@ -2,16 +2,12 @@ import { NextRequest } from "next/server";
 
 const CRON_SECRET = process.env.CRON_SECRET as string
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL as string
+const TEAM_F_ROLE_ID = process.env.TEAM_F_ROLE_ID as string
 
-const message = ()=> {
-    const now = new Date()
-    const after7Days = new Date(now.valueOf())
-    after7Days.setDate(after7Days.getDate() + 7)
-    return `
-<@チームF>
-${now.getMonth() + 1}/${now.getDate()}~${after7Days.getMonth() + 1}/${after7Days.getDate() + 1} の ペアプロ/レビュー会
+const message = ()=> `
+<@&${TEAM_F_ROLE_ID}>
+今週のペアプロ/レビュー会
 `.trim()
-}
 
 export const GET = async (request: NextRequest) => {
     const authHeader = request.headers.get('authorization');
